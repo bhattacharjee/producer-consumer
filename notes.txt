@@ -1,2 +1,7 @@
 Actors talk: https://www.youtube.com/watch?v=lPTqcecwkJg
 
+Coroutines in Python: https://www.youtube.com/watch?v=idLtMISlgy8
+        - Future
+        - Generator
+        - Task
+

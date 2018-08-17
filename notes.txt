@@ -5,3 +5,4 @@ Coroutines in Python: https://www.youtube.com/watch?v=idLtMISlgy8
         - Generator
         - Task
 
+Concurrency is not Parallelism, Pike: https://www.youtube.com/watch?v=cN_DpYBzKso

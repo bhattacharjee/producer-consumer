@@ -1,4 +1,4 @@
-#include <futures>
+#include <future>
 #include <stdio.h>
 
 bool consumer(int N)
@@ -24,4 +24,9 @@ void producer()
         bool done = fu[i].get();
 		printf("Consumer %d is done\n", i);
     }
+}
+
+int main()
+{
+	producer();
 }

@@ -5,9 +5,9 @@
 producer(_, 0) ->
     io:format("~n~nproducer finished~n"),
     true;
-producer(Server, N) ->
-    Server ! {N},
-    producer(Server, N-1).
+producer(TheConsumer, N) ->
+    TheConsumer ! {N},
+    producer(TheConsumer, N-1).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

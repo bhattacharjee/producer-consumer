@@ -1,0 +1,8 @@
+1. Run the binary
+        erl
+
+2. In the erlang prompt, compile. (Don't forget the full-stop).
+        compile:file(prodcon).
+
+3. Run the program
+        prodcon:start().

@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 {
     int* ptr;
     int semid1, semid2;
-    
+
     ptr = (int*)shmem_create();
     if (!ptr)
         exit(1);
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
     if (-1 == semid2)
         exit(1);
     sem_set(semid2, 0);
-    
+
     if (fork())
         producer(ptr, semid1, semid2);
     else

@@ -17,40 +17,40 @@
 
 void consumer(std::future<int>* fut)
 {
-	int i = 0;
-	for (; i < 10; i++)
-	{
-		printf("Consumer got %d\n", (int)fut[i].get());
-		sleep(2);
-	}
+    int i = 0;
+    for (; i < 10; i++)
+    {
+        printf("Consumer got %d\n", (int)fut[i].get());
+        sleep(2);
+    }
 }
 
 void producer(std::promise<int>* prom)
 {
-	int i = 0;
-	for (; i < 10; i++)
-	{
-		printf("Producer producing %d\n", i);
-		prom[i].set_value(i);
-		sleep(1);
-	}
+    int i = 0;
+    for (; i < 10; i++)
+    {
+        printf("Producer producing %d\n", i);
+        prom[i].set_value(i);
+        sleep(1);
+    }
 }
 
 int main ()
 {
-	int i = 0;
-	std::promise<int> prom[10];                      // create promise
-	std::future<int> fut[10];
+    int i = 0;
+    std::promise<int> prom[10];                      // create promise
+    std::future<int> fut[10];
 
-	for (; i < 10; ++i)
-	{
-		fut[i] = prom[i].get_future();    // engagement with future
-	}
+    for (; i < 10; ++i)
+    {
+        fut[i] = prom[i].get_future();    // engagement with future
+    }
 
-	std::thread th1 (consumer, fut);  // send future to new thread
+    std::thread th1 (consumer, fut);  // send future to new thread
 
-	producer(prom);
+    producer(prom);
 
-	th1.join();
-	return 0;
+    th1.join();
+    return 0;
 }

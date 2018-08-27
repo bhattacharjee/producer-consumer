@@ -6,7 +6,10 @@
 
 bool consumer(int N)
 {
-    printf("0x%lx:%d\n", (long)pthread_self(), N);
+    printf(
+            "0x%lx:%d\n",
+            (long)pthread_self(),
+            N);
     return true;
 }
 

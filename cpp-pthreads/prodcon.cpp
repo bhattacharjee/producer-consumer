@@ -21,6 +21,7 @@ void* producer(void* arg)
         sleep(1);
     }
     printf("Producer finished\n");
+    return NULL;
 }
 
 void* consumer(void* arg)
@@ -41,6 +42,7 @@ void* consumer(void* arg)
         }
     }
     printf("Consumer finished\n");
+    return NULL;
 }
 
 int main(int argc, char** argv)

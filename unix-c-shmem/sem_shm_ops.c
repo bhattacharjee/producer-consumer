@@ -3,6 +3,12 @@
 #include <errno.h>
 #include <stdio.h>
 
+/*
+ * Ideally, one should be able to create a shared memory of arbitrary size.
+ * However, in WSL it seems that it is only possible to create a shared memory
+ * that is four bytes long.
+ * This implementation runs both on regular linux and WSL.
+ */
 int* shmem_create()
 {
     int *bucket;
@@ -23,6 +29,17 @@ int* shmem_create()
     return bucket;
 }
 
+/*
+ * The semget() API creates an array of semaphores. In UNIX/Linux the array
+ * can be of arbitrary length.
+ * The current implementation uses two different semget() calls using two
+ * different keys. Ideally, we should be able to use a single semget()
+ * call with the same key to create an array of two semaphores, and use them.
+ *
+ * However, semget() in WSL is broken and it only creates a semaphore with
+ * one element. This program runs on both WSL and regular linux, hence
+ * there are two keys used.
+ */
 int sem_create(key_t key)
 {
     int semid;

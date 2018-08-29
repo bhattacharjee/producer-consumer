@@ -58,4 +58,11 @@ int main(int argc, char **argv)
         producer(ptr, semid1, semid2);
     else
         consumer(ptr, semid2, semid1);
+
+    /*
+     * This leaks the seamphores and the shared memory.
+     *
+     * TODO: cleanup the semaphores and the shared memory
+     * before exiting.
+     */
 }

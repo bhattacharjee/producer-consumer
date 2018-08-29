@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <errno.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
 #include "sem_shm_ops.h"
 
 #define SEM_KEY1 0x200

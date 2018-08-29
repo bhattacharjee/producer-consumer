@@ -1,5 +1,7 @@
 #define SHM_KEY 0x100
 #include "sem_shm_ops.h"
+#include <errno.h>
+#include <stdio.h>
 
 int* shmem_create()
 {

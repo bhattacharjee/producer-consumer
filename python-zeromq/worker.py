@@ -25,7 +25,7 @@ sender.connect("tcp://localhost:5558")
 while True:
     s = receiver.recv()
     # Simple progress indicator for the viewer
-    sys.stdout.write('.')
+    sys.stdout.write("received " + str(s) + "\n")
     sys.stdout.flush()
     # Do the work
     time.sleep(int(s)*0.001)

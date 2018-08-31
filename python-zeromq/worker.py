@@ -12,6 +12,14 @@ import zmq
 
 context = zmq.Context()
 
+# Initiate two connections:
+#   1. To the ventilator 
+#   2. To the sink
+#
+# With this architecture, any number of workers can be spawned
+# without any modification to code, as long as the ports for the
+# ventilator and sink remain the same
+
 # Socket to receive messages on
 receiver = context.socket(zmq.PULL)
 receiver.connect("tcp://localhost:5557")

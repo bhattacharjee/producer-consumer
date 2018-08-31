@@ -11,15 +11,16 @@ from zmq import *
 
 print ("Using ZMQ " + zmq_version())
 
+# a ZMQ context must be created, everything is tied to this context
 context = zmq.Context()
 
-# Socket to send messages on
-sender = context.socket(zmq.PUSH)
-sender.bind("tcp://*:5557")
+# Socket to send messages on, workers/consumers will connect to this
+sender = context.socket(zmq.PUSH) # specify the type of the socket (PUSH)
+sender.bind("tcp://*:5557") # ZMQ is smart, it figures out the protocol
 
 # Socket with direct access to the sink: used to syncronize start of batch
 sink = context.socket(zmq.PUSH)
-sink.connect("tcp://localhost:5558")
+sink.connect("tcp://localhost:5558") # Connect to the sink
 
 print ("Press Enter when the workers are ready: ")
 _ = input()

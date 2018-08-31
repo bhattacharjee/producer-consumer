@@ -6,3 +6,5 @@ Coroutines in Python: https://www.youtube.com/watch?v=idLtMISlgy8
         - Task
 
 Concurrency is not Parallelism, Pike: https://www.youtube.com/watch?v=cN_DpYBzKso
+
+Python generators (coroutines): https://www.youtube.com/watch?v=bD05uGo_sVI&t=15s

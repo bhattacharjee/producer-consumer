@@ -6,3 +6,6 @@
 
 3. Run the program
         prodcon:start().
+
+Note: This can be converted to an escript that doesn't require
+interactive activity with the erlang shell.
